@@ -7,8 +7,13 @@
       ansible.builtin.copy:
         src: /var/lib/jenkins/workspace/petstore/deployment.yaml  # Assuming Jenkins workspace variable
         dest: /root
-      become: yes
+      become: true
       become_user: root
       
     - name: Apply Deployment
       ansible.builtin.command: kubectl apply -f /root/deployment.yaml
+      become: true
+      become_user: root
+      args:
+        chdir: /root/
+
