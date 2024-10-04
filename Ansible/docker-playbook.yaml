@@ -16,7 +16,7 @@
       community.docker.docker_login:
         registry_url: https://index.docker.io/v1/
         username: merajaprasd
-        password: dckr_pat_SHPHNQaXuhbA6JK5C6yD2VIY6tM
+        password: dockerhub-token
     - name: Push Image
       ansible.builtin.command: docker push merajaprasd/petstore:latest
     - name: Run Container
