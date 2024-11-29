@@ -11,9 +11,9 @@
       become_user: root
       
     - name: Apply deployment.yaml to Kubernetes master
-      ansible.builtin.command: kubectl apply -f /home/ubuntu/deployment.yaml
+      ansible.builtin.command: kubectl apply -f deployment.yaml
       become: true
-      # become_user: root
+      become_user: ubuntu
       args:
         chdir: /home/ubuntu/
 
