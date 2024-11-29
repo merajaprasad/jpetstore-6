@@ -5,7 +5,7 @@
   tasks:
     - name: Copy deployment.yaml to Kubernetes master
       ansible.builtin.copy:
-        src: /var/lib/jenkins/workspace/petstore/deployment.yaml  # Assuming Jenkins workspace variable
+        src: /var/lib/jenkins/workspace/pipeline/deployment.yaml  # Assuming Jenkins workspace variable
         dest: /root
       become: true
       become_user: root
