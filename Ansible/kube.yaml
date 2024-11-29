@@ -6,14 +6,14 @@
     - name: Copy deployment.yaml to Kubernetes master
       ansible.builtin.copy:
         src: /var/lib/jenkins/workspace/pipeline/deployment.yaml  # Assuming Jenkins workspace variable
-        dest: /root
+        dest: /home/ubuntu
       become: true
       become_user: root
       
-    - name: Apply Deployment
-      ansible.builtin.command: kubectl apply -f /root/deployment.yaml
+    - name: Apply deployment.yaml to Kubernetes master
+      ansible.builtin.command: kubectl apply -f /home/ubuntu/deployment.yaml
       become: true
-      become_user: root
+      # become_user: root
       args:
-        chdir: /root/
+        chdir: /home/ubuntu/
 
