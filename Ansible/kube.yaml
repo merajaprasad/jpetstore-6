@@ -12,6 +12,5 @@
       
     - name: Apply deployment.yaml to Kubernetes master
       ansible.builtin.command: kubectl apply -f /home/ubuntu/deployment.yaml
-      # become: true
-      # become_user: ubuntu # Use a privileged user for applying if required
+      become_user: ubuntu  # Use a privileged user for applying if required
 
