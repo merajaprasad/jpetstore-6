@@ -8,12 +8,12 @@
         src: /var/lib/jenkins/workspace/pipeline/deployment.yaml  # Assuming Jenkins workspace variable
         dest: /home/ubuntu
       become: true
-      become_user: root
+      become_user: root # Use a privileged user for copying if required
       
     - name: Apply deployment.yaml to Kubernetes master
-      ansible.builtin.command: kubectl apply -f deployment.yaml
+      ansible.builtin.command: kubectl apply -f /home/ubuntu/deployment.yaml
       become: true
-      become_user: ubuntu
+      become_user: ubuntu # Use a privileged user for applying if required
       args:
         chdir: /home/ubuntu/
 
